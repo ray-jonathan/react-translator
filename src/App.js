@@ -3,6 +3,12 @@ import './App.css';
 import Output from './Output';
 
 class App extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      inputText: ''
+    }
+  }
 
   render(){
     return (
@@ -10,11 +16,13 @@ class App extends React.Component{
         <header className="App-header">
           <input 
             onChange={(e) => {
-              console.log(e.target.value);
+              this.setState({
+                inputText: e.target.value
+              })
             }}
           />
           <Output
-            text="shhhh"
+            text={this.state.inputText}
           />
         </header>
       </div>
